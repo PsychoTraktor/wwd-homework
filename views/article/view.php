@@ -27,15 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php if (!Yii::$app->user->isGuest): ?>
         <p>
-            <?= Html::a('Update', ['update', 'slug' => $model->slug], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Delete', ['delete', 'slug' => $model->slug], [
-                'class' => 'btn btn-danger',
+            <?= Html::a('', ['update', 'slug' => $model->slug], ['class' => 'glyphicon glyphicon-edit']) ?>
+            <?= Html::a('', ['delete', 'slug' => $model->slug], [
+                'class' => 'glyphicon glyphicon-remove',
+                'style' => 'color:red',
                 'data' => [
                     'confirm' => 'Are you sure you want to delete this item?',
                     'method' => 'post',
-                ],
+                    ],
                 ])
-             ?>
+            ?>
         </p>
      <?php endif; ?>
 

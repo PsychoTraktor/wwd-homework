@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'WWD HOMEWORK',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -42,9 +42,10 @@ AppAsset::register($this);
             ['label' => 'My Profile', 'url' => ['/userprofile/view']],
             ['label' => 'My Articles', 'url' => ['article/myarticles']],
             ['label' => 'Register', 'url' => ['/site/register']],
-            Yii::$app->user->isGuest ? (
-                
+        
+          
 
+            Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'

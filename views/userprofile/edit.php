@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
 
     <?php $form = ActiveForm::begin([
         'action' =>['submit'],
-        'id' => 'edit-form',
+        'id' => '-form',
         'layout' => 'horizontal',
         'fieldConfig' => [
             'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
@@ -25,7 +25,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
     ]); ?>
 
     <?= $form->field($model, 'username')?>
-    <?= $form->field($model, 'introduction') ?>
+    <?= $form->field($model, 'introduction')->textarea(['rows' => 3])?>
+    <?= $form->field($model, 'birthdate')?>
 
     
 

@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\Html;
 /** @var $model \app\models\Article */
 /** @var $model \app\models\Userprofileform*/
 ?>
@@ -21,5 +22,15 @@
         views: <?php echo $model->getViews()?>
         </small>
     </p>
+    <?= Html::a('', ['update', 'slug' => $model->slug], ['class' => 'glyphicon glyphicon-edit']) ?>
+    <?= Html::a('', ['delete', 'slug' => $model->slug], [
+                'class' => 'glyphicon glyphicon-remove',
+                'style' => 'color:red',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+                ])
+             ?>
     <hr>
 </div>

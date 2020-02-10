@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= yii\widgets\ListView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
-        'itemView' => '_article_item'
+        'itemView' => '_myarticles_item'
         
     ]); ?>
 
