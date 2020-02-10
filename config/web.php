@@ -53,6 +53,8 @@ $config = [
                 'article/<slug>' => 'article/view'
             ],
         ],
+
+        
         
     ],
     'params' => $params,
