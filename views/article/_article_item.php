@@ -13,7 +13,7 @@
     </div>
     <p class="text-muted text-right">
         <small>
-        Created <?php echo Yii::$app->formatter->asRelativeTime($model->created_at)?>
+        Created <?php echo Yii::$app->formatter->asDate($model->created_at)?>
 
         by <a href="<?php echo \yii\helpers\Url::to(['/userprofile/viewstranger', 'name' => $model->createdBy->username])?>">
                  <?php echo $model->createdBy->username?>
