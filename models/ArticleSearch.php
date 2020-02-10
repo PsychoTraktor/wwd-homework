@@ -5,6 +5,7 @@ namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Article;
+use Yii;
 
 /**
  * ArticleSearch represents the model behind the search form of `app\models\Article`.
@@ -55,7 +56,7 @@ class ArticleSearch extends Article
             return $dataProvider;
         }
 
-        // grid filtering conditions
+       // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'created_at' => $this->created_at,
@@ -66,6 +67,38 @@ class ArticleSearch extends Article
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'body', $this->body]);
+
+        return $dataProvider;
+    }
+
+    public function search2($params)
+    {
+        $query =  Article::find()->where(['created_by' => Yii::$app->user->identity->id]);
+
+        // add conditions that should always apply here
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+      /* // grid filtering conditions
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'created_by' => $this->created_by,
+        ]);
+
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'body', $this->body]);*/
 
         return $dataProvider;
     }

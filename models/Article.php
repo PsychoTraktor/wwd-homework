@@ -60,6 +60,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'body', 'summarize'], 'required'],
+            ['title', 'unique','targetClass' => Article::className(), 'targetAttribute' => ['title'], 'message'=>'This title is already in use.'],
             [['title', 'slug'], 'string', 'max' => 60],
             [['body'], 'string'],
             [['public', 'commentable'], 'boolean'],

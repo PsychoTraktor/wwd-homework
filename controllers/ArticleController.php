@@ -59,6 +59,17 @@ class ArticleController extends Controller
         ]);
     }
 
+    public function actionMyarticles()
+    {
+        $searchModel = new ArticleSearch();
+        $dataProvider = $searchModel->search2(Yii::$app->request->queryParams);
+
+        return $this->render('myarticlesview', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single Article model.
      * @param integer $slug

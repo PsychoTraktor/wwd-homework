@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
 
     <?php $form = ActiveForm::begin([
         'action' =>['submit'],
-        'id' => 'register-form',
+        'id' => 'edit-form',
         'layout' => 'horizontal',
         'fieldConfig' => [
             'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",

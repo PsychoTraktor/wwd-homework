@@ -18,8 +18,7 @@
         by <a href="<?php echo \yii\helpers\Url::to(['/userprofile/viewstranger', 'name' => $model->createdBy->username])?>">
                  <?php echo $model->createdBy->username?>
             </a>
-        who has <?php echo $model->countArticles()?> articles. <br>
-        views:  <?php echo $model->getViews()?>
+        views: <?php echo $model->getViews()?>
         </small>
     </p>
 
