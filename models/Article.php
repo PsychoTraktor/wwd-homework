@@ -122,8 +122,4 @@ class Article extends \yii\db\ActiveRecord
         $views = $this->viewcount;
         return $views;
     }
-
-   // public getViewsBy
-
-    
 }
