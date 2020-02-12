@@ -31,9 +31,12 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'email', 'password', 'auth_key', 'access_token'], 'required'],
-            [['username'], 'string', 'max' => 55],
-            ['email', 'email'],
+            [['username', 'password', 'email'], 'required'],
+            ['username', 'string', 'min' => 4, 'max' => 16],
+            ['email', 'unique','targetClass' => User::className(), 'targetAttribute' => ['email'], 'message'=>'Your email address is already in use.'],
+            ['username', 'unique','targetClass' => User::className(), 'targetAttribute' => ['username'], 'message'=>'Your username is already in use.'],
+            ['password', 'match', 'pattern' => '/\d/', "message" => 'Password must contain a number.'],
+       
         ];
     }
 

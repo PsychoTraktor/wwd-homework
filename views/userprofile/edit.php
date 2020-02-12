@@ -12,10 +12,12 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
     <h1><?= Html::encode($this->title) ?></h1>
 
     
-    <p>Username: <?php echo Html::encode($model->username) ?>
+    <p>Username: <?php echo Html::encode($user->username) ?>
+    <p>Username: <?php echo Html::encode($profile->userid) ?>
+    
 
     <?php $form = ActiveForm::begin([
-        'action' =>['submit'],
+      
         'id' => '-form',
         'layout' => 'horizontal',
         'fieldConfig' => [
@@ -24,10 +26,13 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
         ],
     ]); ?>
 
-    <?= $form->field($model, 'username')?>
-    <?= $form->field($model, 'introduction')->textarea(['rows' => 3])?>
-    <?= $form->field($model, 'birthdate')?>
-
+    <?= $form->field($user, 'username')?>
+    <?= $form->field($user, 'email')->input('email')?>
+    <?= $form->field($user, 'password')->input('password')?>
+    <?= $form->field($profile, 'introduction')->textarea(['rows' => 3])?>
+    <?= $form->field($profile, 'city')?>
+    <?= $form->field($profile, 'zip')?>
+    <?= $form->field($profile, 'country')?>>
     
 
     <div class="form-group">

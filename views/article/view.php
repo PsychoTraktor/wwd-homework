@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <small>
         Created <?php echo Yii::$app->formatter->asRelativeTime($model->created_at)?>
 
-        by <a href="<?php echo \yii\helpers\Url::to(['/userprofile/show', 'name' => $model->createdBy->username])?>">
+        by <a href="<?php echo \yii\helpers\Url::to(['/userprofile/viewstranger', 'username' => $model->createdBy->username])?>"> 
                  <?php echo $model->createdBy->username?>
             </a>
     </p>
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php if (!Yii::$app->user->isGuest): ?>
         <p>
-            <?= Html::a('', ['update', 'id' => $model->slug], ['class' => 'glyphicon glyphicon-edit']) ?>
+            <?= Html::a('', ['update', 'slug' => $model->slug], ['class' => 'glyphicon glyphicon-edit']) ?>
             <?= Html::a('', ['delete', 'slug' => $model->slug], [
                 'class' => 'glyphicon glyphicon-remove',
                 'style' => 'color:red',
@@ -42,38 +42,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
         </p>
      <?php endif; ?>
+     <div>
+            <?php echo Html::encode($model->summarize); ?>
+        </div>
+        <div>
+            <?php echo Html::encode($model->body); ?>
+        </div>
+</div>    
+  
+   <?php $this->render('@app/views/article/comment.php');  ?>
 
-    <div>
-            
-    </div>
-    <div>
-
-    <div class="comment-form">
-
-        <?php $form = ActiveForm::begin(); ?>
-
-        <?= $form->field($comments, 'body')->textarea(['rows' => 3]) ?>
-
-        <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
-
-    <p><?php echo $comment->body ?></p>
-
-
-<table border="1">
-    <tr>
-        <th>Full_name</th>
-        <th>Address</th>
-        <th>Phone</th>
-    </tr>
-    <?php foreach($model as $field){ ?>
-    <tr>
-    <td><?= $field->id; ?></td>
-        <td><?= $field->body; ?></td>
-        <td><?= $field->created_by; ?></td>
-    </tr>
+    <?php foreach($comments as $lofasz){ ?>
+        <p><?= $lofasz->createdBy->username; ?></p>
+        <p><?= $lofasz->body; ?></p>
+        
     <?php } ?>
-</table>
+
+   

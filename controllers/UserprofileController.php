@@ -1,21 +1,33 @@
 <?php
 
 namespace app\controllers;
-use app\models\UserprofileForm;
+use app\models\Userprofile;
+use app\models\User;
+use app\models\Profile;
 use Yii;
 
 class UserprofileController extends \yii\web\Controller
 {
 
+    public function numberOfArticles($userid){
+        $con = Yii::$app->db;
+   
+        $command = $con->createCommand('SELECT count(*) as num from article where created_by =:userid',[':userid'=>$userid]); 
 
-    public function actionViewstranger($name)
+        $result = $command->queryAll();
+
+        return $result[0]['num'];
+   }
+   
+    public function actionViewstranger($username)
     {   
-        $model = new UserprofileForm();
+        $user = User::find()->where(['username' => $username])->one();
+        $profile = Profile::find()->where(['userid' => $user->id])->one();
 
-       $model->loadByUsername($name);
-
-        return $this->render('viewstranger', ['model' => $model]
-        );
+        return $this->render('viewstranger', [
+            'user' => $user,
+            'profile' => $profile,
+        ]);
     }
 
 
@@ -27,35 +39,30 @@ class UserprofileController extends \yii\web\Controller
             return $this->goHome();
         }
 
-        $model = new UserprofileForm();
-
-        $model->loadByUserId(Yii::$app->user->identity->id);
+        $user = User::find()->where(['id' => Yii::$app->user->identity->id])->one();
+        $profile = Profile::find()->where(['userid' => Yii::$app->user->identity->id])->one();
 
         return $this->render('view', [
-            'model' => $model,
+            'user' => $user,
+            'profile' => $profile,
         ]);
     }
 
     public function actionEdit()
     {   
-        $model = new UserprofileForm();
-        $model->loadByUserId(Yii::$app->user->identity->id);
-        return $this->render('edit', ['model' => $model]);
-    }
+        $user = User::find()->where(['id' => Yii::$app->user->identity->id])->one();
+        $profile = Profile::find()->where(['userid' => Yii::$app->user->identity->id])->one();
 
-    public function actionSubmit() {
-
-        $model = new UserprofileForm();
-
-        if ($model->load(Yii::$app->request->post())) {
-            
-            $model->editProfile(Yii::$app->user->identity->id);
-
+        if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
+            $user->save() && $profile->save();
+            return $this->goBack();
         }
 
-           // $model->editProfile(Yii::$app->user->identity->id);
+        return $this->render('edit', [
+            'user' => $user,
+            'profile' => $profile
+        ]);
 
-        return $this->render('edit', ['model' => $model]);
     }
 
 }

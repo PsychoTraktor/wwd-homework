@@ -48,6 +48,10 @@ class Comment extends \yii\db\ActiveRecord
             [['body'], 'string'],
             [['created_by'], 'integer'],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
+            [['article_id'], 'integer'],
+            [['article_id'], 'exist', 'skipOnError' => true, 'targetClass' => Article::className(), 'targetAttribute' => ['article_id' => 'id']],
+            
+
         ];
     }
 

@@ -63,7 +63,7 @@ class ArticleController extends Controller
 
     
     /**
-     * Lists the current users models.
+     * Lists the current users Article models.
      * @return mixed
      */
     public function actionMyarticles()
@@ -88,26 +88,35 @@ class ArticleController extends Controller
         $model = $this->findModel($slug);
         $model -> updateCounters(['viewcount'=>1]);
 
-        $comments = new Comment();
-        $comments->article_id = $model->id;
-
-        $id = $model->id; 
+        $id = $model->id;
         
-        $comment =  Comment::find()->where(['id' => $is])->one();
-
-
-        if ($comments->load(Yii::$app->request->post()) &&  $comments->save())  {
-            
-            return $this->redirect(['view', 'id' => $model->slug]);
-        }
+        $comments = Comment::find()->where(['article_id' => $id])->all();
 
         return $this->render('view', [
             'model' => $this->findModel($slug),
-            'comments' => $comments,
-            'comment' => $comment 
+            //'comment' => $comment,
+            'comments' => $comments
         ]);
     }
 
+    /**
+     * Creates a new Article model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionComment() {
+
+         $model = new Comment();
+
+        if ($model->load(Yii::$app->request->post()) &&  $model->save())  {
+            
+            return $this->goBack();
+        }
+
+        return $this->render('comment', [
+            'model' => $model,
+        ]);
+    }
 
 
     /**

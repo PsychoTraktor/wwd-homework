@@ -11,24 +11,24 @@ $this->params['breadcrumbs'][] = $this->title;
 <div>
             <div class="col-lg-offset-1 col-lg-11">
                 
-                <h1>MY PROFILE</h1>
+                <h1>My Profile</h1>
                 <div>
-                    <p>Username: <?php echo Html::encode($model->username) ?>
+                    <p>Username: <?php echo Html::encode($user->username) ?>
                 </div>
                 <div>
-                    <p>Email: <?php echo Html::encode($model->email) ?></p>
+                    <p>Email: <?php echo Html::encode($user->email) ?></p>
                 </div>
                 <div>
-                    <p>Date Of Birth: <?php echo Html::encode($model->birthdate) ?> </p>
+                    <p>Date Of Birth: <?php echo Html::encode($profile->birthdate) ?> </p>
                 </div>
                 <div>
-                    <p>Introduction: <?php echo Html::encode($model->introduction) ?> </p>
+                    <p>Introduction: <?php echo Html::encode($profile->introduction) ?> </p>
                 </div>
                 <div>
-                    <p>Address: <?php echo Html::encode($model->address, $model->city, $model->zip, $model->country) ?></p>
+                    <p>Address: <?php echo Html::encode($profile->address.', '.$profile->city.', '.$profile->zip.', '.$profile->country) ?></p>
                 </div>
                 <div>
-                    <p>Number of articles made: <?php echo Html::encode($model->articlesNum) ?></p>
+                    <p>Number of articles made: <?php echo Html::encode($profile->numberOfArticles($user->id)) ?></p>
                 </div>
                 
                 <?= Html::a('Edit', ['edit'], ['class' => 'btn btn-primary']) ?>

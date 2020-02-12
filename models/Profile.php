@@ -68,7 +68,15 @@ class Profile extends \yii\db\ActiveRecord
         return self::find()->where(['userid' => $userid])->one();
     }
 
-    
+    public function numberOfArticles($userid){
+        $con = Yii::$app->db;
+   
+        $command = $con->createCommand('SELECT count(*) as num from article where created_by =:userid',[':userid'=>$userid]); 
+
+        $result = $command->queryAll();
+
+        return $result[0]['num'];
+   }
 
    
 }

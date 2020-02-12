@@ -41,7 +41,7 @@ class ArticleSearch extends Article
      */
     public function search($params)
     {
-        $query = Article::find()->orderBy('created_at DESC');
+        $query = Article::find()->where(['public' => 1])->orderBy('created_at DESC');
 
         // add conditions that should always apply here
 

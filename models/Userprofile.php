@@ -7,7 +7,7 @@ use Yii;
 
 
  
-class UserprofileForm extends Model {
+class Userprofile extends Model {
     public $id;
     public $username;
     public $email;
@@ -41,6 +41,8 @@ class UserprofileForm extends Model {
         
 
     }
+
+    
 
     public function numberOfArticles($userid){
          $con = Yii::$app->db;
@@ -76,31 +78,4 @@ class UserprofileForm extends Model {
 
     }
 
-    public function editProfile($userid) {
-
-
-        $user = User::findIdentity($userid);
-        $profile = Profile::findIdentityByUserId($userid);
-
-       
-        $user->username = $this->username;
-        $user->email = $this->email;
-        $user->password = $this->password;
-        
-        $profile->introduction = $this->introduction;
-        $profile->address = $this->address;
-        $profile->city = $this->city;
-        $profile->zip = $this->zip;
-        $profile->zip = $this->zip;
-
-        $user->save();
-        $profile->save();
-
-       /* $user = User::findIdentity($userid);
-        $profile = Profile::findIdentityByUserId($userid); <---- EZEK MUKODNEK, UPDATELIK AT ADATBAZIST
-        $user->username = "eres peloo";
-        $profile->introduction = "eres a peloom";
-        $user->save();
-        $profile->save();*/
-    }
 }
