@@ -5,6 +5,7 @@ use yii\widgets\DetailView;
 use yii\widgets\ActiveForm;
 
 
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Article */
 
@@ -29,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php if (!Yii::$app->user->isGuest): ?>
         <p>
-            <?= Html::a('', ['update', 'slug' => $model->slug], ['class' => 'glyphicon glyphicon-edit']) ?>
+            <?= Html::a('', ['update', 'id' => $model->slug], ['class' => 'glyphicon glyphicon-edit']) ?>
             <?= Html::a('', ['delete', 'slug' => $model->slug], [
                 'class' => 'glyphicon glyphicon-remove',
                 'style' => 'color:red',
@@ -43,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
      <?php endif; ?>
 
     <div>
-            <?php echo Html::encode($model->body) ?>
+            
     </div>
     <div>
 
@@ -51,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($comment, 'body')->textarea(['rows' => 3]) ?>
+        <?= $form->field($comments, 'body')->textarea(['rows' => 3]) ?>
 
         <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
@@ -59,5 +60,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php ActiveForm::end(); ?>
 
-</div>
- 
+    <p><?php echo $comment->body ?></p>
+
+
+<table border="1">
+    <tr>
+        <th>Full_name</th>
+        <th>Address</th>
+        <th>Phone</th>
+    </tr>
+    <?php foreach($model as $field){ ?>
+    <tr>
+    <td><?= $field->id; ?></td>
+        <td><?= $field->body; ?></td>
+        <td><?= $field->created_by; ?></td>
+    </tr>
+    <?php } ?>
+</table>

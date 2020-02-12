@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\ActiveDataProvider;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -86,18 +87,24 @@ class ArticleController extends Controller
 
         $model = $this->findModel($slug);
         $model -> updateCounters(['viewcount'=>1]);
-        $comment = new Comment();
 
-        $comment->article_id = $model->id;
+        $comments = new Comment();
+        $comments->article_id = $model->id;
 
-        if ($comment->load(Yii::$app->request->post()) &&  $comment->save())  {
+        $id = $model->id; 
+        
+        $comment =  Comment::find()->where(['id' => $is])->one();
+
+
+        if ($comments->load(Yii::$app->request->post()) &&  $comments->save())  {
             
-            return $this->redirect(['view', 'slug' => $model->slug]);
+            return $this->redirect(['view', 'id' => $model->slug]);
         }
 
         return $this->render('view', [
             'model' => $this->findModel($slug),
-            'comment' => $comment
+            'comments' => $comments,
+            'comment' => $comment 
         ]);
     }
 
@@ -178,21 +185,12 @@ class ArticleController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-     /**
+       /**
      * Finds the Article model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @return Article the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findComments($id)
-    {
-        if (($model = Comments::findOne(['id' => $article_id])) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException('The requested page does not exist.');
-    }
-
-   
+    
 }
