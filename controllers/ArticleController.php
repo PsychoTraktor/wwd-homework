@@ -94,7 +94,6 @@ class ArticleController extends Controller
 
         return $this->render('view', [
             'model' => $this->findModel($slug),
-            //'comment' => $comment,
             'comments' => $comments
         ]);
     }

@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 </div>    
   
-   <?php $this->render('@app/views/article/comment.php');  ?>
+   <?php $this->render('comment', [['model' => $model]]);  ?>
 
     <?php foreach($comments as $lofasz){ ?>
         <p><?= $lofasz->createdBy->username; ?></p>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 10. 21:28
+-- Létrehozás ideje: 2020. Feb 12. 17:19
 -- Kiszolgáló verziója: 10.4.8-MariaDB
 -- PHP verzió: 7.3.11
 
@@ -47,29 +47,38 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`id`, `title`, `slug`, `summarize`, `body`, `public`, `commentable`, `viewcount`, `created_at`, `updated_at`, `created_by`) VALUES
-(6, '4th article', '4th-article', '', 'doooo doooo doooo vvv vdoooodoooo doooodoooo doooo', 0, 0, 34, 1581090911, 1581090911, 56),
-(7, '4th article', '4th-article', 'asd', 'asdasd', 0, 0, 0, 1581169490, 1581169490, 56),
-(8, 'checkbox', 'checkbox', 'Lorem Ipsum', '\r\nWhere does it come from?\r\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\r\n\r\nWhere can I get some?\r\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', NULL, NULL, 3, 1581171551, 1581171551, 56),
-(9, 'kicsi a pocsom', 'kicsi-a-pocsom', 'lonak a fasza', '\r\nWhere does it come from?\r\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\r\n\r\nWhere can I get some?\r\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.\r\nWhere does it come from?\r\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\r\n\r\nWhere can I get some?\r\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.\r\nWhere does it come from?\r\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\r\n\r\nWhere can I get some?\r\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', NULL, NULL, 6, 1581171727, 1581171727, 56),
-(10, '4th article', '4th-article', 'wsdfsdf', 'asdfasdfasdf', 1, 1, 0, 1581173399, 1581173399, 56),
-(11, 'sdfydfsrgsdfgsdfgsdfgsd', 'sdfydfsrgsdfgsdfgsdfgsd', 'dfgsgsdfgsdfgs', 'sdfgsfgsfgdfgasgdfg sfdg sfdg sdfg ', 1, 1, 0, 1581173442, 1581173442, 56),
-(12, 'kicsi a pocsom', 'kicsi-a-pocsom', 'sdf', 'sdf', 0, 0, 0, 1581173845, 1581173845, 56),
-(13, 'lkofasz', 'lkofasz', 'asdfasdf', 'asdfadsfasdf', 0, 0, 1, 1581173866, 1581173866, 56),
-(14, 'na nezzuk mivan', 'na-nezzuk-mivan', 'sdfsdfgser', 'sfghzkl,mgdsfsg', 1, 0, 0, 1581173908, 1581173908, 56),
-(16, '4th articles', '4th-articles', 'asdasd', 'asdasd', 1, 1, 2, 1581350526, 1581350526, 56),
-(17, 'faaaaaaaaaaaaaaaaasz', 'faaaaaaaaaaaaaaaaasz', 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 'sdfysdg \r\nWhere does it come from?\r\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\r\n\r\nWhere can I get some?\r\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle o', 1, 1, 1, 1581364063, 1581364063, 57);
+(18, '1 article', '1-article', 'ez egy proba cikk', 'ez itt a body', 1, 1, 163, 1581454901, 1581454901, 58),
+(19, 'My Second Article', 'my-second-article', 'Nunc at erat lacinia nulla eleifend blandit. Aenean sed nibh feugiat, feugiat est non, tincidunt enim. Vestibulum eget dictum mi, sit amet efficitur metus. Maecenas non felis dictum, tristique massa at, pulvinar mi. Duis pharetra mauris in odio venenatis, eu finibus tortor fermentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam sollicitudin massa at erat imperdiet, vitae commodo massa porta. Sed a tortor scelerisque, aliquam lacus eget, volutpat libero. Ut eget sapien eu nunc egestas venenatis eu ut ante.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dolor mauris, cursus sed convallis vel, fringilla non metus. Curabitur congue lobortis elementum. Pellentesque nec ante nec enim convallis tincidunt eget ac erat. In tristique lacus vel odio faucibus, vitae laoreet justo dignissim. Pellentesque eget leo iaculis, cursus risus non, mattis est. Vivamus ac molestie augue. Donec nec enim tortor. Proin porttitor odio at efficitur efficitur. Mauris in pulvinar tellus.\r\n\r\nMorbi convallis nisi id imperdiet consequat. Proin sagittis tempus nisl. Suspendisse dapibus quis mauris non consequat. Praesent vehicula enim id neque blandit varius. Etiam aliquet, velit sed ullamcorper pulvinar, lectus risus tempus diam, et dapibus mi mi in diam. Nulla sed est rhoncus, euismod tortor in, mollis ipsum. Ut vel mollis ex, sed rhoncus libero. Suspendisse finibus vitae odio vel posuere. Morbi a sem consequat, blandit nulla vitae, scelerisque tortor. Suspendisse ornare urna sit amet lorem imperdiet, vitae fringilla lectus aliquam. Sed ac augue ac lectus blandit lacinia vitae nec velit. Donec ut maximus diam.\r\n\r\nFusce suscipit congue magna eu maximus. Aliquam laoreet rutrum ex, maximus laoreet massa blandit lobortis. Vestibulum rhoncus nisl ligula, id fermentum risus feugiat et. Ut dignissim finibus felis sed iaculis. Ut viverra libero sit amet dignissim vulputate. In cursus, dui ut semper molestie, nisl turpis fringilla nisi, in posuere urna lorem eu tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\r\n\r\nNunc at erat lacinia nulla eleifend blandit. Aenean sed nibh feugiat, feugiat est non, tincidunt enim. Vestibulum eget dictum mi, sit amet efficitur metus. Maecenas non felis dictum, tristique massa at, pulvinar mi. Duis pharetra mauris in odio venenatis, eu finibus tortor fermentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam sollicitudin massa at erat imperdiet, vitae commodo massa porta. Sed a tortor scelerisque, aliquam lacus eget, volutpat libero. Ut eget sapien eu nunc egestas venenatis eu ut ante.', 1, 1, 9, 1581508906, 1581508906, 58),
+(20, 'pista s first article', 'pista-s-first-article', '\r\n//Format 1\r\n<?= $form->field($model,\'name\'); ?>\r\n//Format 2\r\n<?= $form->field($model, \'name\')->textInput()\r\n                    ->hint(\'Please enter your name\')\r\n                    ->label(\'Name\') ?>', '\r\n//Format 1\r\n<?= $form->field($model,\'name\'); ?>\r\n//Format 2\r\n<?= $form->field($model, \'name\')->textInput()\r\n                    ->hint(\'Please enter your name\')\r\n                    ->label(\'Name\') ?>\r\n//Format 1\r\n<?= $form->field($model,\'name\'); ?>\r\n//Format 2\r\n<?= $form->field($model, \'name\')->textInput()\r\n                    ->hint(\'Please enter your name\')\r\n                    ->label(\'Name\') ?>', 0, 0, 7, 1581516722, 1581516722, 58),
+(21, 'kicsi a pocsom', 'kicsi-a-pocsom', 'nem nagy', 'asdasdasd', 0, 0, 1, 1581519067, 1581519067, 59),
+(22, 'kicsi a pocsom megint', 'kicsi-a-pocsom-megint', 'asdasd', 'asdasdasdasd', 0, 0, 1, 1581519438, 1581519438, 59),
+(23, 'asd', 'asd', 'asd', 'asd', 1, 1, 15, 1581521648, 1581521648, 59);
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `comments`
+-- Tábla szerkezet ehhez a táblához `comment`
 --
 
-CREATE TABLE `comments` (
-  `id` int(255) NOT NULL,
-  `text` text NOT NULL,
-  `made_by` int(11) NOT NULL
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
+  `body` text NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `article_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- A tábla adatainak kiíratása `comment`
+--
+
+INSERT INTO `comment` (`id`, `body`, `created_by`, `article_id`) VALUES
+(44, 'ez az elso komment', 58, 18),
+(45, 'sss', 58, 18),
+(48, 'lofaszok', 58, NULL),
+(49, 'asdasdasd', 58, NULL),
+(50, 'ejjj baszomazanyadat', 59, NULL),
+(51, 'ejjj baszomazanyadat', 59, NULL),
+(52, 'EJJBASZOMAZANYAD', 59, NULL);
 
 -- --------------------------------------------------------
 
@@ -94,7 +103,9 @@ CREATE TABLE `profile` (
 
 INSERT INTO `profile` (`id`, `birthdate`, `introduction`, `address`, `city`, `zip`, `country`, `userid`) VALUES
 (2, '2019-01-01', '', '', '', '', 'Magyarország', 56),
-(3, '0000-00-00', '', '', '', '', '', 57);
+(3, '0000-00-00', '', '', '', '', '', 57),
+(4, '1986-12-18', 'NO QUARTER', '', 'Hódmezővásárhely', '6800', 'Magyarország', 58),
+(5, '0000-00-00', 'asd', '', 'asd', 'asd', 'asd', 59);
 
 -- --------------------------------------------------------
 
@@ -117,7 +128,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `auth_key`, `access_token`, `email`) VALUES
 (56, 'eres peloo', '$2y$13$pgThdvrR.oV/iQzaKBAoM.npEDWplTfDXwbqtBHuFPSzdBPSLBWKm', 'qcNQRrKawNfPuF_I3eNVyYQh6qYyKAVK', '2a0v5msLU389VRVcV904Qjbq-wBFmbgl', 'banfiroland@freemail.hu'),
-(57, 'turosbela', '$2y$13$Nq9jLNDjluPXR6M/t9eJ7exjLAGQgVXHMKkDUQ63v1/wHBXZRalSu', 'bqNJzv6rnZ0FanBA2_j2Yro_WFLDIUeF', 'iADhFQe7uj34U7GyFvXTe88t4YpN2u7R', 'turosbela@ga.hu');
+(57, 'turosbela', '$2y$13$Nq9jLNDjluPXR6M/t9eJ7exjLAGQgVXHMKkDUQ63v1/wHBXZRalSu', 'bqNJzv6rnZ0FanBA2_j2Yro_WFLDIUeF', 'iADhFQe7uj34U7GyFvXTe88t4YpN2u7R', 'turosbela@ga.hu'),
+(58, 'pista', '$2y$13$UeNE.09320FDBS.NcouR5.YH9zpWzONfT7NEDprmtQdpK5ulZoCIi', '7SSsf19D34WnXBYoManjVZlJ71wcn6cF', 'By03lzBk3tgSA0mvEEeNyDKYVkeb_cCB', 'banfiroland@freemail.hu'),
+(59, 'tokfej', '$2y$13$isU4kGPaY44VQKR6HYD1BeLWA0Mbjc/hhcxE7xXA.sBsepSyOd72G', 'BgC9y1KZnpNvejjfniwk7xcf58LaMj4G', 'XiETABtEn5Eif2lqfw1Vnuc01J_ba7fQ', 'banfiroland@freemail.hu1');
 
 -- --------------------------------------------------------
 
@@ -4920,11 +4933,12 @@ ALTER TABLE `article`
   ADD KEY `article_user_created_by_fk` (`created_by`);
 
 --
--- A tábla indexei `comments`
+-- A tábla indexei `comment`
 --
-ALTER TABLE `comments`
+ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `made_by` (`made_by`);
+  ADD KEY `created_by` (`created_by`),
+  ADD KEY `article_id` (`article_id`);
 
 --
 -- A tábla indexei `profile`
@@ -4978,25 +4992,25 @@ ALTER TABLE `wsh_co_township`
 -- AUTO_INCREMENT a táblához `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT a táblához `comments`
+-- AUTO_INCREMENT a táblához `comment`
 --
-ALTER TABLE `comments`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT a táblához `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT a táblához `wsh_co_city`
@@ -5039,10 +5053,10 @@ ALTER TABLE `article`
   ADD CONSTRAINT `article_user_created_by_fk` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`);
 
 --
--- Megkötések a táblához `comments`
+-- Megkötések a táblához `comment`
 --
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`made_by`) REFERENCES `user` (`id`);
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`);
 
 --
 -- Megkötések a táblához `profile`
