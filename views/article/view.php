@@ -41,21 +41,51 @@ $this->params['breadcrumbs'][] = $this->title;
                 ])
             ?>
         </p>
-     <?php endif; ?>
-     <div>
-            <?php echo Html::encode($model->summarize); ?>
-        </div>
-        <div>
-            <?php echo Html::encode($model->body); ?>
-        </div>
-</div>    
-  
-   <?php $this->render('comment', [['model' => $model]]);  ?>
+    <?php endif; ?>
 
-    <?php foreach($comments as $lofasz){ ?>
-        <p><?= $lofasz->createdBy->username; ?></p>
-        <p><?= $lofasz->body; ?></p>
-        
-    <?php } ?>
 
+    <div>
+        <p><?php echo Html::encode($model->summarize); ?></p>
+    </div>
+
+    <div>
+    <p><?php echo Html::encode($model->body); ?></p>
+    </div>
+
+
+
+    
+</div>
+<hr>
+
+<div class="comment-view">
+
+    <h3>Leave a Comment</h3>
+
+    <div class="comment-form">
+
+        <?php $form = ActiveForm::begin(); ?>
+        <?= $form->field($comment, 'article_id')->hiddenInput(['value'=>$model->id])->label(false); ?>           
+        <?= $form->field($comment, 'body')->textarea(['cols' => 3]) ?>
+
+        <div class="form-group">
+            <?= Html::submitButton('Comment', ['class' => 'btn btn-success']) ?>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+    </div>    
+    <div class="comments">
+    <h3>Comments</h3>
+        <div>    
+            <?php foreach($comments as $item){ ?>
+                <hr>
+                <p><b><?= $item->createdBy->username; ?></b></p>
+                <p><?= $item->body; ?></p>
+                <hr>
+            <?php } ?>
+        </div> 
+    </div>    
    
+        
+
+</div>

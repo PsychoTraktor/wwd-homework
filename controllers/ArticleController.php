@@ -61,6 +61,22 @@ class ArticleController extends Controller
         ]);
     }
 
+    public function actionGridindex()
+{
+    $model = new \app\models\Article();
+
+    if ($model->load(Yii::$app->request->post())) {
+        if ($model->validate()) {
+            // form inputs are valid, do something here
+            return;
+        }
+    }
+
+    return $this->render('gridindex', [
+        'model' => $model,
+    ]);
+}
+
     
     /**
      * Lists the current users Article models.
@@ -86,36 +102,27 @@ class ArticleController extends Controller
     public function actionView($slug) {
 
         $model = $this->findModel($slug);
-        $model -> updateCounters(['viewcount'=>1]);
+        $model -> updateCounters(['viewcount'=>1]); //incrementing counter
 
-        $id = $model->id;
-        
-        $comments = Comment::find()->where(['article_id' => $id])->all();
 
-        return $this->render('view', [
-            'model' => $this->findModel($slug),
-            'comments' => $comments
-        ]);
-    }
+        $comment = new Comment();
 
-    /**
-     * Creates a new Article model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionComment() {
-
-         $model = new Comment();
-
-        if ($model->load(Yii::$app->request->post()) &&  $model->save())  {
-            
-            return $this->goBack();
+        if ($comment->load(Yii::$app->request->post()) && $comment->save())  {  //creating new comment
+            $model -> updateCounters(['viewcount'=>-2]);
+            return $this->render('view', [
+                'model' => $model,
+                'comments' => $comments = Comment::find()->where(['article_id' =>  $id = $model->id])->all(),  //finding the articles own comments
+                'comment' => $comment
+            ]);
         }
-
-        return $this->render('comment', [
+       
+        return $this->render('view', [
             'model' => $model,
+            'comments' => $comments = Comment::find()->where(['article_id' =>  $id = $model->id])->all(),  //finding the articles own comments
+            'comment' => $comment
         ]);
     }
+
 
 
     /**
@@ -128,7 +135,8 @@ class ArticleController extends Controller
         $model = new Article();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'slug' => $model->slug]);
+                return $this->redirect(Yii::$app->request->referrer);
+            
         }
 
         return $this->render('create', [
@@ -152,7 +160,7 @@ class ArticleController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post())) {
-            return $this->redirect(['view', 'slug' => $model->slug]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [
@@ -170,9 +178,15 @@ class ArticleController extends Controller
     public function actionDelete($slug)
     {
         $model = $this->findModel($slug);
+        $comment = Comment::find()->where(['article_id' =>  $id = $model->id])->all();
+
         if ($model->created_by !== Yii::$app->user->id){
             throw new ForbiddenHttpException("You do not have permission to delete this article");
         }
+        foreach ($comment as $com) {
+            $com->delete();
+        }
+
         $model->delete();
 
         return $this->redirect(['index']);

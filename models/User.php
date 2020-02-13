@@ -33,8 +33,6 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['username', 'password', 'email'], 'required'],
             ['username', 'string', 'min' => 4, 'max' => 16],
-            ['email', 'unique','targetClass' => User::className(), 'targetAttribute' => ['email'], 'message'=>'Your email address is already in use.'],
-            ['username', 'unique','targetClass' => User::className(), 'targetAttribute' => ['username'], 'message'=>'Your username is already in use.'],
             ['password', 'match', 'pattern' => '/\d/', "message" => 'Password must contain a number.'],
        
         ];

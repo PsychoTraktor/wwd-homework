@@ -78,21 +78,5 @@ class Comment extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'created_by']);
     }
 
-    
-    /**
-     * Gets query for [[created_by]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getArticleId()
-    {
-        return $this->hasOne(Article::className(), ['id' => 'article_id']);
-    }
-
-    
-
-
-
-
      
 }

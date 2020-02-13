@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
     <?= $form->field($user, 'email')->input('email')?>
     <?= $form->field($user, 'password')->input('password')?>
     <?= $form->field($profile, 'introduction')->textarea(['rows' => 3])?>
+    <?= $form->field($profile, 'address')?>
     <?= $form->field($profile, 'city')?>
     <?= $form->field($profile, 'zip')?>
     <?= $form->field($profile, 'country')?>>

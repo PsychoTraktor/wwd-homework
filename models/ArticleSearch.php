@@ -84,21 +84,11 @@ class ArticleSearch extends Article
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
+
             return $dataProvider;
         }
 
-      /* // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'created_by' => $this->created_by,
-        ]);
-
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'body', $this->body]);*/
+    
 
         return $dataProvider;
     }

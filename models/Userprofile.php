@@ -24,22 +24,11 @@ class Userprofile extends Model {
     public function loadByUsername($username) {
         
         $user =  User::findByUsername($username);
-       // $profile = Profile::findIdentityByUserId($userid);
-
+     
         $this->id = $user->id;
         $this->username = $user->username;
         $this->email = $user->email;
         $this->password = $user->password;
-       // $this->birthdate = $profile->birthdate;
-
-      /*  $this->introduction = $profile->introduction;
-        $this->address = $profile->address;
-        $this->city = $profile->city;
-        $this->zip = $profile->zip;
-        $this->country = $profile->country;*/
-
-        
-
     }
 
     

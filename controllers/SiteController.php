@@ -100,7 +100,6 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->signup()){
            
-            Yii::$app->session->addFlash('SIGNUP', 'You have successfully registered');
             return $this->redirect(Yii::$app->homeUrl);
         }
 

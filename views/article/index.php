@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ListView;
+use yii\widgets\View;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ArticleSearch */
@@ -20,11 +20,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= yii\widgets\ListView::widget([
+    <?= yii\widgets\GridView::widget([
         'dataProvider' => $dataProvider,
         'itemView' => '_article_item'
         
     ]); ?>
 
-
+d
 </div>

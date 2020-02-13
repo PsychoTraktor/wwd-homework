@@ -122,4 +122,20 @@ class Article extends \yii\db\ActiveRecord
         $views = $this->viewcount;
         return $views;
     }
+
+    public function findComments($id) {
+
+        $comments = Comment::find()->where(['article_id' => $id])->all();
+
+        return $comments;
+    }
+
+    public function countComments($id) {
+        $comments = $this->findComments($id);
+        $size = sizeof($comments);
+
+        return $size;
+    }
+
+    
 }

@@ -53,9 +53,13 @@ class UserprofileController extends \yii\web\Controller
         $user = User::find()->where(['id' => Yii::$app->user->identity->id])->one();
         $profile = Profile::find()->where(['userid' => Yii::$app->user->identity->id])->one();
 
-        if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
+        if ($user->load(Yii::$app->request->post())  && $profile->load(Yii::$app->request->post())) {
             $user->save() && $profile->save();
-            return $this->goBack();
+            
+            return $this->render('view', [
+                'user' => $user,
+                'profile' => $profile,
+            ]);
         }
 
         return $this->render('edit', [
