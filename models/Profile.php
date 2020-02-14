@@ -35,10 +35,11 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             [[ 'userid'], 'required'],
+           [['birthdate'], 'date', 'format' => 'yyyy-MM-dd'],
             [['birthdate'], 'safe'],
             [['introduction'], 'string'],
             [['userid'], 'integer'],
-            [['city'], 'exist', 'skipOnError' => false, 'targetClass' => City::className(), 'targetAttribute' => ['city' => 'cit_name']],  //city validation??
+           // [['city'], 'exist', 'skipOnError' => false, 'targetClass' => City::className(), 'targetAttribute' => ['city' => 'cit_name']],  //city validation??
             [['address', 'city', 'zip', 'country'], 'string', 'max' => 255],
             [['userid'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['userid' => 'id']],
         ];
@@ -51,7 +52,7 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'birthdate' => 'Birthdate',
+            'birthdate' => 'Birthdate (yyyy-MM-dd)',
             'introduction' => 'Introduction',
             'address' => 'Address',
             'city' => 'City',

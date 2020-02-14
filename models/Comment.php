@@ -44,7 +44,7 @@ class Comment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['body'], 'required'],
+            [['body'], 'required', 'message'=>' '],
             [['body'], 'string'],
             [['created_by'], 'integer'],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],

@@ -13,22 +13,22 @@ $this->params['breadcrumbs'][] = $user->username."'s profile";
                 
                 <h1><?php echo Html::encode($user->username)?>'s Profile </h1>
                 <div>
-                    <p>Username: <?php echo Html::encode($user->username) ?>
+                    <p><b>Username:</b>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo Html::encode($user->username) ?>
                 </div>
                 <div>
-                    <p>Email: <?php echo Html::encode($user->email) ?></p>
+                    <p><b>Email:</b> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo Html::encode($user->email) ?></p>
                 </div>
                 <div>
-                    <p>Date Of Birth: <?php echo Html::encode($profile->birthdate) ?> </p>
+                    <p><b>Date Of Birth:</b> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo Html::encode($profile->birthdate) ?> </p>
                 </div>
                 <div>
-                    <p>Introduction: <?php echo Html::encode($profile->introduction) ?> </p>
+                    <p><b>Introduction:</b> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo Html::encode($profile->introduction) ?> </p>
                 </div>
                 <div>
-                    <p>Address: <?php echo Html::encode( $profile->address.', '.$profile->city.', '.$profile->zip.', '.$profile->country) ?></p>
+                    <p><b>Address:</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo Html::encode( $profile->address.', '.$profile->city.', '.$profile->zip.', '.$profile->country) ?></p>
                 </div>
                 <div>
-                    <p>Number of articles: <?php echo Html::encode($profile->numberOfArticles($user->id)) ?></p>
+                    <p><b>Number of articles:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($profile->numberOfArticles($user->id)) ?></p>
                 </div>
                
             </div>

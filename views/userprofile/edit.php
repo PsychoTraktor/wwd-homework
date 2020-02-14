@@ -11,9 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
 <div class="userprofile-edit">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    
-    <p>Username: <?php echo Html::encode($user->username) ?>
-    <p>Username: <?php echo Html::encode($profile->userid) ?>
+
     
 
     <?php $form = ActiveForm::begin([
@@ -30,6 +28,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
     <?= $form->field($user, 'email')->input('email')?>
     <?= $form->field($user, 'password')->input('password')?>
     <?= $form->field($profile, 'introduction')->textarea(['rows' => 3])?>
+    <?= $form->field($profile, 'birthdate')?>
     <?= $form->field($profile, 'address')?>
     <?= $form->field($profile, 'city')?>
     <?= $form->field($profile, 'zip')?>

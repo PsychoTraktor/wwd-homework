@@ -43,12 +43,13 @@ class Userprofile extends Model {
          return $result[0]['num'];
     }
 
-    public function loadByUserId($userid) {
+    /*public function loadUserprofile() {
 
        
 
-        $user = User::findIdentity($userid);
-        $profile = Profile::findIdentityByUserId($userid);
+        $user = User::find()->where(['id' => Yii::$app->user->identity->id])->one();
+        $profile = Profile::find()->where(['userid' => Yii::$app->user->identity->id])->one();
+
         
         $this->articlesNum = $this->numberOfArticles($userid);
         $this->id = $user->id;
@@ -62,9 +63,28 @@ class Userprofile extends Model {
         $this->city = $profile->city;
         $this->zip = $profile->zip;
         $this->country = $profile->country;
+    }
+
+    public function saveUserprofile() {
+
+       
+
+        $user = User::find()->where(['id' => Yii::$app->user->identity->id])->one();
+        $profile = Profile::find()->where(['userid' => Yii::$app->user->identity->id])->one();
 
         
+        $this->articlesNum = $this->numberOfArticles($userid);
+        $this->id = $user->id;
+        $this->username = $user->username;
+        $this->email = $user->email;
+        $this->password = $user->password;
+        $this->birthdate = $profile->birthdate;
 
-    }
+        $this->introduction = $profile->introduction;
+        $this->address = $profile->address;
+        $this->city = $profile->city;
+        $this->zip = $profile->zip;
+        $this->country = $profile->country;
+    }*/
 
 }

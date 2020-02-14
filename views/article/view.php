@@ -60,32 +60,39 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="comment-view">
 
+<?php if ($model->commentable == 1): ?> 
     <h3>Leave a Comment</h3>
 
     <div class="comment-form">
 
         <?php $form = ActiveForm::begin(); ?>
         <?= $form->field($comment, 'article_id')->hiddenInput(['value'=>$model->id])->label(false); ?>           
-        <?= $form->field($comment, 'body')->textarea(['cols' => 3]) ?>
-
+        <?= $form->field($comment, 'body')->textarea(['cols' => 3])->label(false); ?>
+    
         <div class="form-group">
             <?= Html::submitButton('Comment', ['class' => 'btn btn-success']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>
-    </div>    
-    <div class="comments">
-    <h3>Comments</h3>
+    </div>
+    
+
+       
+   <div>
+        <h3>Comments</h3>
         <div>    
-            <?php foreach($comments as $item){ ?>
+            <?php foreach(array_reverse($comments) as $item){ ?>
                 <hr>
                 <p><b><?= $item->createdBy->username; ?></b></p>
                 <p><?= $item->body; ?></p>
                 <hr>
             <?php } ?>
         </div> 
-    </div>    
-   
+    </div>
+       
+  
+    <?php else: ?>
+        <h3>This article is not commentable.</h3>  
+    <?php endif; ?>
         
-
 </div>

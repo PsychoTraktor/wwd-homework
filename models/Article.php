@@ -18,6 +18,7 @@ use yii\behaviors\TimestampBehavior;
  * @property boolean $public
  * @property boolean $commentable
  * @property int $viewcount
+ * @property int $comments
  * @property int $created_at
  * @property int $updated_at
  * @property int $created_by
@@ -62,6 +63,7 @@ class Article extends \yii\db\ActiveRecord
             [['title', 'body', 'summarize'], 'required'],
             ['title', 'unique','targetClass' => Article::className(), 'targetAttribute' => ['title'], 'message'=>'This title is already in use.'],
             [['title', 'slug'], 'string', 'max' => 60],
+            ['comments', 'integer'],
             [['body'], 'string'],
             [['public', 'commentable'], 'boolean'],
             [['created_at', 'updated_at', 'created_by', 'viewcount'], 'integer'],
@@ -118,10 +120,12 @@ class Article extends \yii\db\ActiveRecord
         return $size;
     }
 
+
     public function getviews() {
         $views = $this->viewcount;
         return $views;
     }
+
 
     public function findComments($id) {
 
@@ -130,11 +134,21 @@ class Article extends \yii\db\ActiveRecord
         return $comments;
     }
 
+    
+    /**
+     * 
+     * Counts the comments and save them.
+     */
     public function countComments($id) {
         $comments = $this->findComments($id);
-        $size = sizeof($comments);
+        $numberOfComments = sizeof($comments);
 
-        return $size;
+        $model = Article::findOne(['id' => $id]);
+
+        $model->comments = $numberOfComments;
+        $model->save();
+
+        return $numberOfComments;
     }
 
     

@@ -17,14 +17,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Article', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    <div align="right">
+            <p><b>Sort By:</b></p>
+            <span><a href="<?php echo \yii\helpers\Url::to(['/article/index'])?>">date</a></span>
+            <span><a href="<?php echo \yii\helpers\Url::to(['/article/indexbyviews'])?>">views</a></span>
+            <span><a href="<?php echo \yii\helpers\Url::to(['/article/indexbycomments'])?>">comments</a></span>
+    </div>
+
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= yii\widgets\GridView::widget([
+    <?= yii\widgets\ListView::widget([
         'dataProvider' => $dataProvider,
         'itemView' => '_article_item'
         
     ]); ?>
 
-d
+
 </div>

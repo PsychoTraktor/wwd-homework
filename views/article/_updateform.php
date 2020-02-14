@@ -11,7 +11,6 @@ use yii\widgets\ActiveForm;
 <div class="article-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'summarize')->textarea(['rows' => 2]) ?>
     <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>

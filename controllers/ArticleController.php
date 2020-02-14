@@ -47,7 +47,7 @@ class ArticleController extends Controller
    
 
     /**
-     * Lists all Article models.
+     * Lists all Article models, ordered by date.
      * @return mixed
      */
     public function actionIndex()
@@ -61,33 +61,53 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function actionGridindex()
-{
-    $model = new \app\models\Article();
+   
 
-    if ($model->load(Yii::$app->request->post())) {
-        if ($model->validate()) {
-            // form inputs are valid, do something here
-            return;
-        }
-    }
 
-    return $this->render('gridindex', [
-        'model' => $model,
-    ]);
-}
-
-    
     /**
      * Lists the current users Article models.
      * @return mixed
      */
     public function actionMyarticles()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search2(Yii::$app->request->queryParams);
 
         return $this->render('myarticlesview', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Lists all Article models, ordered by views.
+     * @return mixed
+     */
+    public function actionIndexbyviews()
+    {
+        $searchModel = new ArticleSearch();
+        $dataProvider = $searchModel->search3(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Lists all Article models, ordered by .
+     * @return mixed
+     */
+    public function actionIndexbycomments()
+    {
+        $searchModel = new ArticleSearch();
+        $dataProvider = $searchModel->search4(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -102,13 +122,18 @@ class ArticleController extends Controller
     public function actionView($slug) {
 
         $model = $this->findModel($slug);
-        $model -> updateCounters(['viewcount'=>1]); //incrementing counter
+
+
+        if (Yii::$app->user->id !==  $model->created_by) {
+            $model -> updateCounters(['viewcount'=>1]);            //incrementing counter
+
+        };
 
 
         $comment = new Comment();
 
         if ($comment->load(Yii::$app->request->post()) && $comment->save())  {  //creating new comment
-            $model -> updateCounters(['viewcount'=>-2]);
+            
             return $this->render('view', [
                 'model' => $model,
                 'comments' => $comments = Comment::find()->where(['article_id' =>  $id = $model->id])->all(),  //finding the articles own comments
@@ -135,7 +160,7 @@ class ArticleController extends Controller
         $model = new Article();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(Yii::$app->request->referrer);
+            $this->redirect(\Yii::$app->urlManager->createUrl('/article/index'));
             
         }
 
@@ -159,8 +184,8 @@ class ArticleController extends Controller
             throw new ForbiddenHttpException("You do not have permission to edit this article");
         }
 
-        if ($model->load(Yii::$app->request->post())) {
-            return $this->redirect(['index']);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $this->redirect(\Yii::$app->urlManager->createUrl('/article/index'));
         }
 
         return $this->render('update', [

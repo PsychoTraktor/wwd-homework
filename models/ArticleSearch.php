@@ -56,24 +56,48 @@ class ArticleSearch extends Article
             return $dataProvider;
         }
 
-       // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'created_by' => $this->created_by,
-        ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'body', $this->body]);
 
         return $dataProvider;
     }
 
+    /**
+     * Creates data provider instance with search query applied
+     * Search own articles
+     * @param array $params
+     *
+     * @return ActiveDataProvider
+     */
     public function search2($params)
     {
-        $query =  Article::find()->where(['created_by' => Yii::$app->user->identity->id]);
+        $query =  Article::find()->where(['created_by' => Yii::$app->user->identity->id])->orderBy('created_at DESC');
+
+        // add conditions that should always apply here
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+
+            return $dataProvider;
+        }
+
+       return $dataProvider;
+    }
+
+    /**
+     * Creates data provider instance with search query applied
+     * Search articles, ordered by views.
+     * @param array $params
+     *
+     * @return ActiveDataProvider
+     */
+    public function search3($params)
+    {
+        $query =  Article::find()->where(['public' => 1])->orderBy('viewcount DESC');;
 
         // add conditions that should always apply here
 
@@ -89,6 +113,33 @@ class ArticleSearch extends Article
         }
 
     
+
+        return $dataProvider;
+    }
+
+    /**
+     * Creates data provider instance with search query applied
+     * Search articles, ordered by comments.
+     * @param array $params
+     *
+     * @return ActiveDataProvider
+     */
+    public function search4($params)
+    {
+        $query =  Article::find()->where(['public' => 1])->orderBy('comments DESC');;
+
+        // add conditions that should always apply here
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+
+            return $dataProvider;
+        }
 
         return $dataProvider;
     }
