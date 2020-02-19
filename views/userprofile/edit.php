@@ -1,7 +1,11 @@
 <?php
 /* @var $this yii\web\View */
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
+use dosamigos\datepicker\DatePicker;
+use kartik\select2\Select2;
+use app\models\WshCoCity;
 
 $this->params['breadcrumbs'][] = ['label' => 'Profile', 'url' => ['view']];
 $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
@@ -28,11 +32,27 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
     <?= $form->field($user, 'email')->input('email')?>
     <?= $form->field($user, 'password')->input('password')?>
     <?= $form->field($profile, 'introduction')->textarea(['rows' => 3])?>
-    <?= $form->field($profile, 'birthdate')?>
+    <?= $form->field($profile, 'birthdate')->widget(
+    DatePicker::className(), [
+        // inline too, not bad
+         'inline' => false, 
+         // modify template for custom rendering
+        //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy-mm-dd'
+        ]
+]);?>
     <?= $form->field($profile, 'address')?>
+    <?= $form->field($profile, 'zip')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(WshCoCity::find()->all(), 'cit_id', 'cit_zip'),
+        'options' => ['placeholder' => 'Select a postal code...', 'id' => 'zipCode'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ])?>
     <?= $form->field($profile, 'city')?>
-    <?= $form->field($profile, 'zip')?>
-    <?= $form->field($profile, 'country')?>>
+    <?= $form->field($profile, 'country')?>
     
 
     <div class="form-group">
@@ -43,3 +63,18 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
 
     <?php ActiveForm::end(); ?>
 </div>
+
+<?php
+$script = <<< JS
+    //js goes here
+    $('#zipCode').change(function(){
+        var zipId = $(this).val();
+        $.get('index.php?r=city/get-city', {zipId : zipId}, function(data){
+            var data = $.parseJSON(data);
+            alert(data.cit_name);
+             $('#profile-city').attr('value', data.cit_name);
+        })
+    });
+ JS;
+$this->registerJs($script)
+?>

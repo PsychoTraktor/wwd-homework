@@ -35,7 +35,7 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             [[ 'userid'], 'required'],
-           [['birthdate'], 'date', 'format' => 'yyyy-MM-dd'],
+            [['birthdate'], 'date', 'format' => 'yyyy-M-dd'],
             [['birthdate'], 'safe'],
             [['introduction'], 'string'],
             [['userid'], 'integer'],
@@ -52,7 +52,7 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'birthdate' => 'Birthdate (yyyy-MM-dd)',
+            'birthdate' => 'Birthdate',
             'introduction' => 'Introduction',
             'address' => 'Address',
             'city' => 'City',
