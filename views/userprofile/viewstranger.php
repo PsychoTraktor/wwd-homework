@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['view']];
+$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['article/index']];
 $this->params['breadcrumbs'][] = $user->username."'s profile";
 
 ?>
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $user->username."'s profile";
                     <p><b>Introduction:</b> &nbsp;&nbsp;&nbsp;&nbsp;<?php echo Html::encode($profile->introduction) ?> </p>
                 </div>
                 <div>
-                    <p><b>Address:</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo Html::encode( $profile->address.', '.$profile->city.', '.$profile->zip.', '.$profile->country) ?></p>
+                    <p><b>Address:</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo Html::encode( $profile->address.', '.$profile->city.', '.$profile->getZip().', '.$profile->country) ?></p>
                 </div>
                 <div>
                     <p><b>Number of articles:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($profile->numberOfArticles($user->id)) ?></p>

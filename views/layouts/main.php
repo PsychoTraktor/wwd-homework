@@ -37,17 +37,14 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['article/index']],
-            ['label' => 'My Profile', 'url' => ['/userprofile/view']],
-            ['label' => 'My Articles', 'url' => ['article/myarticles']],
-            ['label' => 'Register', 'url' => ['/site/register']],
-        
-          
-
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
+        'items' => Yii::$app->user->isGuest ? ([
+                ['label' => 'Home', 'url' => ['article/index']],
+                ['label' => 'Login', 'url' => ['/site/login']],
+                ['label' => 'Register', 'url' => ['/site/register']]]
+            ) : ([
+                ['label' => 'Home', 'url' => ['article/index']],
+                ['label' => 'My Profile', 'url' => ['/userprofile/view']],
+                ['label' => 'My Articles', 'url' => ['article/myarticles']],
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
@@ -56,8 +53,8 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
-        ],
+            ])
+        ,
     ]);
     NavBar::end();
     ?>

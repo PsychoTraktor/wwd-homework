@@ -19,13 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     <p><b>Email:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($user->email) ?></p>
                 </div>
                 <div>
-                    <p><b>Date Of Birth:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($profile->birthdate) ?> </p>
+                    <p><b>Birthdate:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($profile->birthdate) ?> </p>
                 </div>
                 <div>
                     <p><b>Introduction:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($profile->introduction) ?> </p>
                 </div>
                 <div>
-                    <p><b>Address:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($profile->address.', '.$profile->city.', '.$profile->zip.', '.$profile->country) ?></p>
+                    <p><b>Address:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($profile->address.', '.$profile->city.', '.$profile->getZip().', '.$profile->country) ?></p>
                 </div>
                 <div>
                 <a href="<?php echo \yii\helpers\Url::to(['/article/myarticles'])?>">

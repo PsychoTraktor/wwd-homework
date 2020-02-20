@@ -44,9 +44,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
         ]
 ]);?>
     <?= $form->field($profile, 'address')?>
-    <?= $form->field($profile, 'zip')->widget(Select2::classname(), [
+    <?= $form->field($profile, 'zip_id')->widget(Select2::classname(), [
         'data' => ArrayHelper::map(WshCoCity::find()->all(), 'cit_id', 'cit_zip'),
-        'options' => ['placeholder' => 'Select a postal code...', 'id' => 'zipCode'],
+        'options' => ['placeholder' => 'Select a postal code...'],
         'pluginOptions' => [
             'allowClear' => true
         ],
@@ -67,14 +67,13 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
 <?php
 $script = <<< JS
     //js goes here
-    $('#zipCode').change(function(){
+    $('#profile-zip_id').change(function(){
         var zipId = $(this).val();
         $.get('index.php?r=city/get-city', {zipId : zipId}, function(data){
             var data = $.parseJSON(data);
-            alert(data.cit_name);
-             $('#profile-city').attr('value', data.cit_name);
+            $('#profile-city').attr('value', data.cit_name);
         })
     });
- JS;
+JS;
 $this->registerJs($script)
 ?>
