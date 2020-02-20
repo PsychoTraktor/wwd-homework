@@ -17,9 +17,31 @@ class Userprofile extends Model {
     public $articlesNum;
     public $address;
     public $city;
-    public $zip;
+    public $zip_id;
     public $country;
     public $userid;
+
+    public function rules()
+    {
+        return [
+            [['username', 'password', 'email'], 'required'],
+            ['username', 'string', 'min' => 4, 'max' => 16],
+            //['email', 'unique','targetClass' => User::className(), 'targetAttribute' => ['email'], 'message'=>'Your email address is already in use.'],
+            //['username', 'unique','targetClass' => User::className(), 'targetAttribute' => ['username'], 'message'=>'Your username is already in use.'],
+            //[['password', 'password_repeat'], 'string', 'min' => 6],
+            ['password', 'match', 'pattern' => '/\d/', "message" => 'Password must contain a number.'],
+           // [['password_repeat'], 'compare', 'compareAttribute' => 'password'],
+            [[ 'userid'], 'required'],
+            [['birthdate'], 'date', 'format' => 'yyyy-M-dd'],
+            [['birthdate'], 'safe'],
+            [['introduction'], 'string'],
+            [['userid'], 'integer'],
+           // [['city'], 'exist', 'skipOnError' => false, 'targetClass' => City::className(), 'targetAttribute' => ['city' => 'cit_name']],  //city validation??
+            [['address', 'city', 'zip_id', 'country'], 'string', 'max' => 255],
+            [['userid'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['userid' => 'id']],
+           
+        ];
+    }
 
     public function loadByUsername($username) {
         
@@ -43,15 +65,15 @@ class Userprofile extends Model {
          return $result[0]['num'];
     }
 
-    /*public function loadUserprofile() {
+    public function loadUserprofile() {
 
-       
+        $this->userid = Yii::$app->user->identity->id;
 
-        $user = User::find()->where(['id' => Yii::$app->user->identity->id])->one();
-        $profile = Profile::find()->where(['userid' => Yii::$app->user->identity->id])->one();
+        $user = User::find()->where(['id' => $this->userid])->one();
+        $profile = Profile::find()->where(['userid' => $this->userid])->one();
 
         
-        $this->articlesNum = $this->numberOfArticles($userid);
+        $this->articlesNum = $this->numberOfArticles($this->userid);
         $this->id = $user->id;
         $this->username = $user->username;
         $this->email = $user->email;
@@ -61,30 +83,30 @@ class Userprofile extends Model {
         $this->introduction = $profile->introduction;
         $this->address = $profile->address;
         $this->city = $profile->city;
-        $this->zip = $profile->zip;
+        $this->zip_id = $profile->zip_id;
         $this->country = $profile->country;
     }
 
     public function saveUserprofile() {
 
-       
+        $this->userid = Yii::$app->user->identity->id;
 
-        $user = User::find()->where(['id' => Yii::$app->user->identity->id])->one();
-        $profile = Profile::find()->where(['userid' => Yii::$app->user->identity->id])->one();
+        $user = User::find()->where(['id' => $this->userid])->one();
+        $profile = Profile::find()->where(['userid' => $this->userid])->one();
 
+        $user->username = $this->username;
+        $user->email = $this->email;
+        $user->password = $this->password;
         
-        $this->articlesNum = $this->numberOfArticles($userid);
-        $this->id = $user->id;
-        $this->username = $user->username;
-        $this->email = $user->email;
-        $this->password = $user->password;
-        $this->birthdate = $profile->birthdate;
+        $profile->birthdate = $this->birthdate;
+        $profile->introduction = $this->introduction;
+        $profile->address = $this->address;
+        $profile->city = $this->city;
+        $profile->zip_id = $this->zip_id;
+        $profile->country = $this->country;
 
-        $this->introduction = $profile->introduction;
-        $this->address = $profile->address;
-        $this->city = $profile->city;
-        $this->zip = $profile->zip;
-        $this->country = $profile->country;
-    }*/
+        $user->save();
+        $profile->save();
+    }
 
 }

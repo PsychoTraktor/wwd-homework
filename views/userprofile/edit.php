@@ -28,11 +28,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
         ],
     ]); ?>
 
-    <?= $form->field($user, 'username')?>
-    <?= $form->field($user, 'email')->input('email')?>
-    <?= $form->field($user, 'password')->input('password')?>
-    <?= $form->field($profile, 'introduction')->textarea(['rows' => 3])?>
-    <?= $form->field($profile, 'birthdate')->widget(
+    <?= $form->field($model, 'username')?>
+    <?= $form->field($model, 'email')->input('email')?>
+    <?= $form->field($model, 'password')->input('password')?>
+    <?= $form->field($model, 'introduction')->textarea(['rows' => 3])?>
+    <?= $form->field($model, 'birthdate')->widget(
     DatePicker::className(), [
         // inline too, not bad
          'inline' => false, 
@@ -43,16 +43,16 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
             'format' => 'yyyy-mm-dd'
         ]
 ]);?>
-    <?= $form->field($profile, 'address')?>
-    <?= $form->field($profile, 'zip_id')->widget(Select2::classname(), [
+    <?= $form->field($model, 'address')?>
+    <?= $form->field($model, 'zip_id')->widget(Select2::classname(), [
         'data' => ArrayHelper::map(WshCoCity::find()->all(), 'cit_id', 'cit_zip'),
         'options' => ['placeholder' => 'Select a postal code...'],
         'pluginOptions' => [
             'allowClear' => true
         ],
     ])?>
-    <?= $form->field($profile, 'city')?>
-    <?= $form->field($profile, 'country')?>
+    <?= $form->field($model, 'city')?>
+    <?= $form->field($model, 'country')?>
     
 
     <div class="form-group">
@@ -67,11 +67,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
 <?php
 $script = <<< JS
     //js goes here
-    $('#profile-zip_id').change(function(){
+    $('#userprofile-zip_id').change(function(){
         var zipId = $(this).val();
         $.get('index.php?r=city/get-city', {zipId : zipId}, function(data){
             var data = $.parseJSON(data);
-            $('#profile-city').attr('value', data.cit_name);
+            $('#userprofile-city').attr('value', data.cit_name);
         })
     });
 JS;

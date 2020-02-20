@@ -50,21 +50,20 @@ class UserprofileController extends \yii\web\Controller
 
     public function actionEdit()
     {   
-        $user = User::find()->where(['id' => Yii::$app->user->identity->id])->one();
-        $profile = Profile::find()->where(['userid' => Yii::$app->user->identity->id])->one();
+       $model = new Userprofile;
 
-        if ($user->load(Yii::$app->request->post())  && $profile->load(Yii::$app->request->post())) {
-            $user->save() && $profile->save();
-            
-            return $this->render('view', [
-                'user' => $user,
-                'profile' => $profile,
-            ]);
+        if ($model->load(Yii::$app->request->post())) {
+            //if ($model->validate()) {
+                $model->saveUserprofile();
+                
+                return $this->goHome();
+            //} 
+        } else {
+            $model->loadUserprofile();
         }
 
         return $this->render('edit', [
-            'user' => $user,
-            'profile' => $profile
+            "model" => $model
         ]);
 
     }
