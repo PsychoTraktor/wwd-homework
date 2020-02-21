@@ -101,7 +101,7 @@ class Userprofile extends Model {
 
         $user->username = $this->username;
         $user->email = $this->email;
-        $user->password = $this->password;
+        $user->password = \Yii::$app->security->generatePasswordHash($this->password);;
         
         $profile->birthdate = $this->birthdate;
         $profile->introduction = $this->introduction;
