@@ -28,6 +28,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
         ],
     ]); ?>
 
+    <?= $form->field($model, 'id')->hiddenInput(['value'=>$model->id])->label(false);?>
+    <?= $form->field($model, 'userid')->hiddenInput(['value'=>$model->userid])->label(false);?>
     <?= $form->field($model, 'username')?>
     <?= $form->field($model, 'email')->input('email')?>
     <?= $form->field($model, 'password')->input('password')?>

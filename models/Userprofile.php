@@ -26,12 +26,17 @@ class Userprofile extends Model {
         return [
             [['username', 'password', 'email'], 'required'],
             ['username', 'string', 'min' => 4, 'max' => 16],
-            //['email', 'unique','targetClass' => User::className(), 'targetAttribute' => ['email'], 'message'=>'Your email address is already in use.'],
-            //['username', 'unique','targetClass' => User::className(), 'targetAttribute' => ['username'], 'message'=>'Your username is already in use.'],
+            ['email', 'unique','targetClass' => User::className(), 'targetAttribute' => ['email'], 'message'=>'Your email address is already in use.',
+             'when' => function($model){
+                $user =  User::find()->where(['id' => $model->userid])->one();
+                //die("id:".$model->userid);
+                return ($user->email != $model->email);
+             }],
+           // ['username', 'unique','targetClass' => User::className(), 'targetAttribute' => ['username'], 'message'=>'Your username is already in use.'],
             //[['password', 'password_repeat'], 'string', 'min' => 6],
             ['password', 'match', 'pattern' => '/\d/', "message" => 'Password must contain a number.'],
            // [['password_repeat'], 'compare', 'compareAttribute' => 'password'],
-            [[ 'userid'], 'required'],
+            [[ 'email'], 'email'],
             [['birthdate'], 'date', 'format' => 'yyyy-M-dd'],
             [['birthdate'], 'safe'],
             [['introduction'], 'string'],
