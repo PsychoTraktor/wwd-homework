@@ -6,6 +6,7 @@ use yii\bootstrap\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use kartik\select2\Select2;
 use app\models\WshCoCity;
+use yii\bootstrap\Modal;
 
 $this->params['breadcrumbs'][] = ['label' => 'Profile', 'url' => ['view']];
 $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
@@ -14,9 +15,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
 
 <div class="userprofile-edit">
     <h1><?= Html::encode($this->title) ?></h1>
-
-
-    
 
     <?php $form = ActiveForm::begin([
       
@@ -32,7 +30,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
     <?= $form->field($model, 'userid')->hiddenInput(['value'=>$model->userid])->label(false);?>
     <?= $form->field($model, 'username')?>
     <?= $form->field($model, 'email')->input('email')?>
-    <?= $form->field($model, 'password')->input('password')?>
     <?= $form->field($model, 'introduction')->textarea(['rows' => 3])?>
     <?= $form->field($model, 'birthdate')->widget(
     DatePicker::className(), [
