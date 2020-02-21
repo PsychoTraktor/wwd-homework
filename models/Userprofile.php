@@ -11,7 +11,6 @@ class Userprofile extends Model {
     public $id;
     public $username;
     public $email;
-    public $password;
     public $birthdate;
     public $introduction;
     public $articlesNum;
@@ -24,7 +23,7 @@ class Userprofile extends Model {
     public function rules()
     {
         return [
-            [['username', 'password', 'email'], 'required'],
+            [['username',  'email'], 'required'],
             ['username', 'string', 'min' => 4, 'max' => 16],
             ['email', 'unique','targetClass' => User::className(), 'targetAttribute' => ['email'], 'message'=>'Your email address is already in use.',
              'when' => function($model){
@@ -32,10 +31,12 @@ class Userprofile extends Model {
                 //die("id:".$model->userid);
                 return ($user->email != $model->email);
              }],
-           // ['username', 'unique','targetClass' => User::className(), 'targetAttribute' => ['username'], 'message'=>'Your username is already in use.'],
-            //[['password', 'password_repeat'], 'string', 'min' => 6],
-            ['password', 'match', 'pattern' => '/\d/', "message" => 'Password must contain a number.'],
-           // [['password_repeat'], 'compare', 'compareAttribute' => 'password'],
+             ['username', 'unique','targetClass' => User::className(), 'targetAttribute' => ['username'], 'message'=>'Your username is already in use.',
+             'when' => function($model){
+                $user =  User::find()->where(['id' => $model->userid])->one();
+                //die("id:".$model->userid);
+                return ($user->username != $model->username);
+             }],
             [[ 'email'], 'email'],
             [['birthdate'], 'date', 'format' => 'yyyy-M-dd'],
             [['birthdate'], 'safe'],
