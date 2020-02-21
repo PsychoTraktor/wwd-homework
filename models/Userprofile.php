@@ -49,6 +49,23 @@ class Userprofile extends Model {
         ];
     }
 
+      /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'birthdate' => 'Birthdate',
+            'introduction' => 'Introduction',
+            'address' => 'Address',
+            'city' => 'City',
+            'zip_id' => 'Zip',
+            'country' => 'Country',
+            'userid' => 'Userid',
+        ];
+    }
+
     public function loadByUsername($username) {
         
         $user =  User::findByUsername($username);

@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 use app\models\Userprofile;
+use app\models\ChangePassword;
 use app\models\User;
 use app\models\Profile;
 use Yii;
@@ -63,7 +64,21 @@ class UserprofileController extends \yii\web\Controller
         return $this->render('edit', [
             "model" => $model
         ]);
+    }
 
+    public function actionPasswordedit()
+    {   
+        $model = new ChangePassword;
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->validate() && $model->savePassword();
+           return  $this->redirect(\Yii::$app->urlManager->createUrl('/userprofile/edit'));
+            }
+
+
+        return $this->renderAjax('_passwordform', [
+            'model' => $model,
+        ]);
     }
 
 

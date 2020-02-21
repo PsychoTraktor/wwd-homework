@@ -2,6 +2,7 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use kartik\select2\Select2;
@@ -13,8 +14,26 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
 
 ?>
 
+<h1><?= Html::encode($this->title) ?></h1>
+
+    
+
+
 <div class="userprofile-edit">
-    <h1><?= Html::encode($this->title) ?></h1>
+
+
+
+<?php Modal::begin([
+            'header' => '<h4>Edit Password</h4>',
+            'id'     => 'modal',
+            'size' => 'modal-sm',
+            'clientOptions' => ['backdrop' => 'static', 'keyboard' => FALSE]
+    ]);
+    
+    echo "<div id='modalContent'></div>";
+    
+    Modal::end();
+?>
 
     <?php $form = ActiveForm::begin([
       
@@ -25,7 +44,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
             'labelOptions' => ['class' => 'col-lg-2 control-label'],
         ],
     ]); ?>
-
     <?= $form->field($model, 'id')->hiddenInput(['value'=>$model->id])->label(false);?>
     <?= $form->field($model, 'userid')->hiddenInput(['value'=>$model->userid])->label(false);?>
     <?= $form->field($model, 'username')?>
@@ -39,7 +57,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
         //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
         'clientOptions' => [
             'autoclose' => true,
-            'format' => 'yyyy-mm-dd'
+            'format' => 'yyyy-mm-dd',
+            'startDate' => date('1960-01-01'),
+            'endDate' => date('')
         ]
 ]);?>
     <?= $form->field($model, 'address')?>
@@ -56,10 +76,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
 
     <div class="form-group">
         <div class="col-lg-offset-1 col-lg-11">
-            <?= Html::submitButton('Update', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-        </div>
+            <?= Html::submitButton('Update Profile', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+            <?= Html::button('Change Password', ['value' => \yii\helpers\Url::to(['passwordedit']),'class' => 'btn btn-link', 'id' => 'modalButton']) ?>
+         </div>
     </div>
-
+        
     <?php ActiveForm::end(); ?>
 </div>
 

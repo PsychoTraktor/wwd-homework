@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </a>        
                 </div>
                 
-                <?= Html::a('Edit', ['edit'], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('Edit Profile', ['edit'], ['class' => 'btn btn-primary']) ?>
             </div>
     </div>
 </div>

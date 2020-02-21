@@ -8,7 +8,7 @@ use Yii;
 
  
 class ChangePassword extends Model {
-    public $id;
+    public $userid;
     public $password;
     public $password_repeat;
 
@@ -23,29 +23,21 @@ class ChangePassword extends Model {
         ];
     }
 
-    public function loadByUsername($username) {
-        
-        $user =  User::findByUsername($username);
-     
-        $this->id = $user->id;
-        $this->username = $user->username;
-        $this->email = $user->email;
-        $this->password = $user->password;
-    }
 
 
     public function loadPassword() {
 
+        $this->userid = Yii::$app->user->identity->id;
         $user = User::find()->where(['id' => $this->userid])->one();
 
         $this->password = $user->password;
     }
 
     public function savePassword() {
-
+        $this->userid = Yii::$app->user->identity->id;
         $user = User::find()->where(['id' => $this->userid])->one();
 
-        $user->password = \Yii::$app->security->generatePasswordHash($this->password);;
+       $user->password = \Yii::$app->security->generatePasswordHash($this->password);
         $user->save();
     }
 
