@@ -72,7 +72,7 @@ AppAsset::register($this);
 
 <footer class="footer --footer-color">
     <div class="container">
-        <p class="pull-left">&copy; WWD HOMEWORK <?= date('Y') ?></p>
+        <p class="pull-left" style="color: white;">&copy; WWD HOMEWORK <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

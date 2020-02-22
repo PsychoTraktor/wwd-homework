@@ -31,9 +31,7 @@ class UserprofileController extends \yii\web\Controller
         ]);
     }
 
-
-
-    public function actionView()
+     public function actionView()
     {   
 
         if (Yii::$app->user->isGuest) {
@@ -81,7 +79,4 @@ class UserprofileController extends \yii\web\Controller
             'model' => $model,
         ]);
     }
-
-
-
 }
