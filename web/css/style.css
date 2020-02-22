@@ -1,4 +1,30 @@
-.--grey{
-    background-color: grey;
-    border:none;
+body{
+    font: 14px "Source Sans Pro", sans-serif;
+    color: #575757;
+}
+
+
+.--background{
+    background-color: #e9ebee;
+}
+.--color {
+    background-color: rgba(245, 244, 244, 0.9);
+    opacity:0.7;
+}
+
+.--nav {
+    background-color: rgba(199, 199, 199, 0.9);
+}
+
+.--radius {
+    border-radius: 10px 10px 7px 7px;
+}
+
+.--element-padding{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding: 15px;
+    margin: 15px;
+    background-color: rgb(129, 148, 148);
+    border-radius: 10px 10px 10px 10px;
 }

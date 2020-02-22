@@ -29,14 +29,12 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-
-    <div class="--grey">
         <?php
         NavBar::begin([
             'brandLabel' => 'WWD HOMEWORK',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar-inverse navbar-fixed-top --grey',
+                'class' => ' navbar-fixed-top --nav',
             ],
         ]);
         echo Nav::widget([
@@ -62,7 +60,6 @@ AppAsset::register($this);
         ]);
         NavBar::end();
         ?>
-    </div>
 
     <div class="container">
         <?= Breadcrumbs::widget([
