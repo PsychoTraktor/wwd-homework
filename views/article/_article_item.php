@@ -11,6 +11,7 @@
     <div>
     <?php echo \yii\helpers\StringHelper::truncateWords(\yii\helpers\Html::encode($model->summarize), 60) ?>
     </div>
+    <hr>
     <p class="text-muted text-right">
         <small>
             Created <?php echo Yii::$app->formatter->asDate($model->created_at)?>
@@ -22,5 +23,4 @@
             comments: <?php echo $model->countComments($model->id)?><br>
         </small>
     </p>
-    <hr>
 </div>

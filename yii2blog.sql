@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 21, 2020 at 04:29 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2020. Feb 22. 20:21
+-- Kiszolgáló verziója: 10.4.8-MariaDB
+-- PHP verzió: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `yii2blog`
+-- Adatbázis: `yii2blog`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article`
+-- Tábla szerkezet ehhez a táblához `article`
 --
 
 CREATE TABLE `article` (
@@ -44,17 +44,21 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `article`
+-- A tábla adatainak kiíratása `article`
 --
 
 INSERT INTO `article` (`id`, `title`, `slug`, `summarize`, `body`, `public`, `commentable`, `viewcount`, `comments`, `created_at`, `updated_at`, `created_by`) VALUES
-(56, 'article 1', 'article-1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\n', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\n', 1, 0, 0, 1, 1582209887, 1582210608, 79),
-(57, 'article 2', 'article-2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\n', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\n', 1, 1, 0, 0, 1582210663, 1582210663, 79);
+(62, 'John Doe\'s first article.', 'john-does-first-article', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 1, 1, 3, 3, 1582398495, 1582399043, 86),
+(63, 'John Doe\'s second article.', 'john-does-second-article', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 1, 0, 1, 0, 1582398580, 1582398597, 86),
+(64, 'John Doe\'s fthird article. Not public.', 'john-does-fthird-article-not-public', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 0, 1, 0, 0, 1582398785, 1582398785, 86),
+(65, 'Jane Does first article', 'jane-does-first-article', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 1, 1, 0, 0, 1582399078, 1582399078, 87),
+(66, 'Jane Doe: You Can\'t Comment On This! Ha!', 'jane-doe-you-cant-comment-on-this-ha', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 1, 0, 0, 0, 1582399133, 1582399133, 87),
+(67, 'This Artice Is Not Public!', 'this-artice-is-not-public', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum leo at nulla suscipit fermentum. Vivamus vitae pellentesque eros. Etiam at odio rutrum, consequat eros ac, cursus velit. Aliquam mollis massa quis bibendum malesuada. Fusce dapibus tempor sem ullamcorper imperdiet. Integer ornare vel nisi mollis cursus. Vivamus nec sodales magna, et aliquam nisl. Fusce porta ultricies arcu, et iaculis eros luctus eu.', 0, 1, 0, 0, 1582399178, 1582399178, 87);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Tábla szerkezet ehhez a táblához `comment`
 --
 
 CREATE TABLE `comment` (
@@ -65,16 +69,18 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `comment`
+-- A tábla adatainak kiíratása `comment`
 --
 
 INSERT INTO `comment` (`id`, `body`, `created_by`, `article_id`) VALUES
-(115, 'Ez az első kommentem.', 79, 56);
+(120, 'I comment on my own article.', 86, 62),
+(121, 'I comment on my own article. Again.', 86, 62),
+(122, 'Nice article John!', 87, 62);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profile`
+-- Tábla szerkezet ehhez a táblához `profile`
 --
 
 CREATE TABLE `profile` (
@@ -89,17 +95,17 @@ CREATE TABLE `profile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `profile`
+-- A tábla adatainak kiíratása `profile`
 --
 
 INSERT INTO `profile` (`id`, `birthdate`, `introduction`, `address`, `city`, `zip_id`, `country`, `userid`) VALUES
-(15, '6000-07-12', 'I am jack sparrow', 'Cigánysor 22', 'Szeged', '2101', 'Uganda', 79),
-(16, '0000-00-00', '', '', '', '', '', 80);
+(22, '1986-08-15', 'Hi! I am John doe.', 'High street 17.', 'Budapest III. kerület', '17', 'Hungary', 86),
+(23, '2008-06-10', 'Hi! I am Jane Doe.', 'Futrinka street 11.', 'Budapest I. kerület', '3', 'Hungary', 87);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Tábla szerkezet ehhez a táblához `user`
 --
 
 CREATE TABLE `user` (
@@ -112,17 +118,17 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- A tábla adatainak kiíratása `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `auth_key`, `access_token`, `email`) VALUES
-(79, 'joska23', '$2y$13$wc619dGYmrAa4/sWj0DCx.ZiW8CEEkV6aUPD/HGJbnOno0JPXYYei', 'SJFjepO8xPEoeAXx_HzDr_nLmtFD0DcS', 'wjOBJAo25r4LQkHLAdKSOjmpFTlatl5z', 'banfiroland@freemail.hu'),
-(80, 'John Doe', '$2y$13$TNHbhoKhJbRxF8IhS9h0Hu7hIWEav3TebOlejwk/kMl3uAu58e2ae', '6gWemixm2IVAWdyslTWDUF0hHZzvUb_Y', 'RWyMVy-6sKfyLeiANaKcp-UIzckQ60LR', 'banfiroland2@freemail.hu');
+(86, 'John Doe', '$2y$13$2kB6vDJ2QxQ0CaaIcF6LE.3cM13F0NqgxOhFGINry9mugmX.NSTqu', 'slFKHNs6B8CUveAWOJye1iHfpGH_6ClH', 'LEWSI3fFY3-FV4a5RLNLfuTy8BLjlFjj', 'johndoe@gmail.com'),
+(87, 'Jane Doe', '$2y$13$9v2xoWs12GDbK/5RKVdx.OG.YcpYQ1zy9XcJElk4ndbSb3.vZHqTy', '4DbZahiiDyMjhEQ0aWyE1NjMWkxT0sI_', 'ayaw7LSRWyW2nBMVtrM77VP0tOFK8Ppw', 'janedoe@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wsh_co_city`
+-- Tábla szerkezet ehhez a táblához `wsh_co_city`
 --
 
 CREATE TABLE `wsh_co_city` (
@@ -140,7 +146,7 @@ CREATE TABLE `wsh_co_city` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
--- Dumping data for table `wsh_co_city`
+-- A tábla adatainak kiíratása `wsh_co_city`
 --
 
 INSERT INTO `wsh_co_city` (`cit_id`, `cit_zip`, `cit_name`, `cit_cty_code`, `cit_lat`, `cit_long`, `cit_cso_code`, `cit_rig_id`, `cit_range`, `cit_population`, `cit_homes`) VALUES
@@ -4306,18 +4312,18 @@ INSERT INTO `wsh_co_city` (`cit_id`, `cit_zip`, `cit_name`, `cit_cty_code`, `cit
 (4154, '9955', 'Szentgotthárd', 'VA', 46.952, 16.326, 31583, 4, 6773.000, 8953, 3313);
 
 --
--- Indexes for dumped tables
+-- Indexek a kiírt táblákhoz
 --
 
 --
--- Indexes for table `article`
+-- A tábla indexei `article`
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`id`),
   ADD KEY `article_user_created_by_fk` (`created_by`);
 
 --
--- Indexes for table `comment`
+-- A tábla indexei `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
@@ -4325,77 +4331,77 @@ ALTER TABLE `comment`
   ADD KEY `article_id` (`article_id`);
 
 --
--- Indexes for table `profile`
+-- A tábla indexei `profile`
 --
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`);
 
 --
--- Indexes for table `user`
+-- A tábla indexei `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `wsh_co_city`
+-- A tábla indexei `wsh_co_city`
 --
 ALTER TABLE `wsh_co_city`
   ADD PRIMARY KEY (`cit_id`),
   ADD KEY `cit_zip` (`cit_zip`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- A kiírt táblák AUTO_INCREMENT értéke
 --
 
 --
--- AUTO_INCREMENT for table `article`
+-- AUTO_INCREMENT a táblához `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT a táblához `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
--- AUTO_INCREMENT for table `profile`
+-- AUTO_INCREMENT a táblához `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
--- AUTO_INCREMENT for table `wsh_co_city`
+-- AUTO_INCREMENT a táblához `wsh_co_city`
 --
 ALTER TABLE `wsh_co_city`
   MODIFY `cit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4155;
 
 --
--- Constraints for dumped tables
+-- Megkötések a kiírt táblákhoz
 --
 
 --
--- Constraints for table `article`
+-- Megkötések a táblához `article`
 --
 ALTER TABLE `article`
   ADD CONSTRAINT `article_user_created_by_fk` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `comment`
+-- Megkötések a táblához `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`);
 
 --
--- Constraints for table `profile`
+-- Megkötések a táblához `profile`
 --
 ALTER TABLE `profile`
   ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`);
