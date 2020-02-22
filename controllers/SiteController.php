@@ -92,13 +92,18 @@ class SiteController extends Controller
         ]);
     }
 
+
+
+    /**
+     * Register action.
+     *
+     * @return Response
+     */
     public function actionRegister()
     {
         $model = new SignupForm();
 
-
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->signup()){
+         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->signup()){
            
             return  $this->redirect(\Yii::$app->urlManager->createUrl('/site/login'));
         }

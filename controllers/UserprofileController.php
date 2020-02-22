@@ -9,7 +9,11 @@ use Yii;
 
 class UserprofileController extends \yii\web\Controller
 {
-
+     /**
+     * Counts the articles made by a user.
+     *
+     * @return Response
+     */
     public function numberOfArticles($userid){
         $con = Yii::$app->db;
    
@@ -19,7 +23,13 @@ class UserprofileController extends \yii\web\Controller
 
         return $result[0]['num'];
    }
-   
+
+
+    /**
+     * View Someone else's profile.
+     *
+     * @return Response
+     */
     public function actionViewstranger($username)
     {   
         $user = User::find()->where(['username' => $username])->one();
@@ -31,6 +41,12 @@ class UserprofileController extends \yii\web\Controller
         ]);
     }
 
+
+     /**
+     * View your own profile.
+     *
+     * @return Response
+     */
      public function actionView()
     {   
 
@@ -47,17 +63,22 @@ class UserprofileController extends \yii\web\Controller
         ]);
     }
 
+
+     /**
+     * Edit your own profile..
+     *
+     * @return Response
+     */
     public function actionEdit()
     {   
        $model = new Userprofile;
 
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate() && $model->saveUserprofile()) {
+            $model->validate() && $model->saveUserprofile();
                 return  $this->redirect(\Yii::$app->urlManager->createUrl('/userprofile/view'));
-            }
+            
         } else {
             $model->loadUserprofile();
-        
         }
 
         return $this->render('edit', [
@@ -65,6 +86,12 @@ class UserprofileController extends \yii\web\Controller
         ]);
     }
 
+
+     /**
+     * Edit your password.
+     *
+     * @return Response
+     */
     public function actionPasswordedit()
     {   
         $model = new ChangePassword;
@@ -73,7 +100,6 @@ class UserprofileController extends \yii\web\Controller
             $model->validate() && $model->savePassword();
            return  $this->redirect(\Yii::$app->urlManager->createUrl('/userprofile/edit'));
             }
-
 
         return $this->renderAjax('_passwordform', [
             'model' => $model,
