@@ -28,7 +28,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap --background">
+<div class="wrap --background-color">
         <?php
         NavBar::begin([
             'brandLabel' => 'WWD HOMEWORK',
@@ -70,7 +70,7 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer --background">
+<footer class="footer --footer-color">
     <div class="container">
         <p class="pull-left">&copy; WWD HOMEWORK <?= date('Y') ?></p>
 

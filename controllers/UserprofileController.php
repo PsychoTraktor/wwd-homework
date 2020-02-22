@@ -59,7 +59,7 @@ class UserprofileController extends \yii\web\Controller
             }
         } else {
             $model->loadUserprofile();
-
+        
         }
 
         return $this->render('edit', [

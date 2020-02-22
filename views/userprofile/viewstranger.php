@@ -8,7 +8,7 @@ $this->params['breadcrumbs'][] = $user->username."'s profile";
 
 ?>
 
-<div>
+<div class="container-fluid --element-background-color --radius --element-padding">
             <div class="col-lg-offset-1 col-lg-11">
                 
                 <h1><?php echo Html::encode($user->username)?>'s Profile </h1>

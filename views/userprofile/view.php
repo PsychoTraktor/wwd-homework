@@ -8,7 +8,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
-<div >
+<div class="container-fluid --element-background-color --radius --element-padding" >
             <div class="col-lg-offset-1 col-lg-11">
                 
                 <h1>My Profile</h1>

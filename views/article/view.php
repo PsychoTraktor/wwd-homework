@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="article-view">
+<div class="article-view --element-background-color --radius --element-padding">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -78,15 +78,15 @@ $this->params['breadcrumbs'][] = $this->title;
     
 
        
-   <div>
+   <div >
         <h3>Comments</h3>
         <div>    
             <?php foreach(array_reverse($comments) as $item){ ?>
-            <div class="comment-item --element-padding">
-                <hr>
+            <div class = "--element-background-color --radius --element-padding">
+               
                 <p><b><?= $item->createdBy->username; ?></b></p>
                 <p><?= $item->body; ?></p>
-                <hr>
+                
             </div>
             <?php } ?>
         </div> 

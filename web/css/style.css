@@ -8,14 +8,24 @@
     background-color:#4581b6;
 }
 
+.--background-color{
+    background-color: #e9ebee;
+}
 
+.--element-background-color{
+    background-color: #f5f5f5;
+}
+
+.--footer-color {
+    background-color:#555f63;
+}
 
 .--nav a {
     color: cornsilk;
 }
 
 .--radius {
-    border-radius: 10px 10px 7px 7px;
+    border-radius: 3px 3px 3px 3px;
 }
 
 .--element-padding {

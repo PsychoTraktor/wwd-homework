@@ -19,9 +19,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Edit Profile', 'url' => ['edit']];
     
 
 
-<div class="userprofile-edit">
+<div class="userprofile-edit container-fluid --element-background-color --radius --element-padding">
 
-
+<h1>Edit Profile</h1>
 
 <?php Modal::begin([
             'header' => '<h4>Edit Password</h4>',

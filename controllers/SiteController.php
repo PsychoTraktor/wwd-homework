@@ -100,7 +100,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->signup()){
            
-            return $this->goHome();
+            return  $this->redirect(\Yii::$app->urlManager->createUrl('/site/login'));
         }
 
         
