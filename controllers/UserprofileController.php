@@ -55,10 +55,11 @@ class UserprofileController extends \yii\web\Controller
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate() && $model->saveUserprofile()) {
-                return $this->goHome();
+                return  $this->redirect(\Yii::$app->urlManager->createUrl('/userprofile/view'));
             }
         } else {
             $model->loadUserprofile();
+
         }
 
         return $this->render('edit', [

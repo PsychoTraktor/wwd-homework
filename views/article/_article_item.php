@@ -4,7 +4,7 @@
 ?>
 
 
-<div class="container-fluid --element-padding">
+<div class="container-fluid">
     <a href="<?php echo \yii\helpers\Url::to(['view', 'slug' => $model->slug]) ?>">
         <h3><?php echo \yii\helpers\Html::encode($model->title) ?></h3>
     </a>

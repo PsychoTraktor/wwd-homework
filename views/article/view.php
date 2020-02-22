@@ -82,10 +82,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <h3>Comments</h3>
         <div>    
             <?php foreach(array_reverse($comments) as $item){ ?>
+            <div class="comment-item --element-padding">
                 <hr>
                 <p><b><?= $item->createdBy->username; ?></b></p>
                 <p><?= $item->body; ?></p>
                 <hr>
+            </div>
             <?php } ?>
         </div> 
     </div>

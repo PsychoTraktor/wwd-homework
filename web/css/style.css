@@ -1,30 +1,46 @@
-body{
+*{
     font: 14px "Source Sans Pro", sans-serif;
     color: #575757;
 }
 
 
-.--background{
-    background-color: #e9ebee;
-}
-.--color {
-    background-color: rgba(245, 244, 244, 0.9);
-    opacity:0.7;
+.--nav {
+    background-color:#4581b6;
 }
 
-.--nav {
-    background-color: rgba(199, 199, 199, 0.9);
+
+
+.--nav a {
+    color: cornsilk;
 }
 
 .--radius {
     border-radius: 10px 10px 7px 7px;
 }
 
-.--element-padding{
+.--element-padding {
     padding-top: 15px;
     padding-bottom: 15px;
     padding: 15px;
     margin: 15px;
-    background-color: rgb(129, 148, 148);
+}
+
+.--box-shadow {
     border-radius: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.62);
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    font-weight: bold;
+    background-color: #4581b6;
+}
+
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+    color: cornsilk;
+}
+
+.nav > li > form > button.logout:focus, .nav > li > form > button.logout:hover {
+    font-weight: bold;
 }

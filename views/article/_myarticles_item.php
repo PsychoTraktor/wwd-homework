@@ -5,7 +5,7 @@ use yii\helpers\Html;
 ?>
 
 
-<div>
+<div class="container-fluid">
     <a href="<?php echo \yii\helpers\Url::to(['view', 'slug' => $model->slug]) ?>">
         <h3><?php echo \yii\helpers\Html::encode($model->title) ?></h3>
     </a>
@@ -14,12 +14,8 @@ use yii\helpers\Html;
     </div>
     <p class="text-muted text-right">
         <small>
-        Created <?php echo Yii::$app->formatter->asRelativeTime($model->created_at)?>
-
-        by <a href="<?php echo \yii\helpers\Url::to(['/userprofile/viewstranger', 'name' => $model->createdBy->username])?>">
-                 <?php echo $model->createdBy->username?>
-            </a>
-        views: <?php echo $model->getViews()?>
+        views: <?php echo $model->getViews()?> <br>
+        comments: <?php echo $model->countComments($model->id)?>
         </small>
     </p>
     <?= Html::a('', ['update', 'slug' => $model->slug], ['class' => 'glyphicon glyphicon-edit']) ?>
