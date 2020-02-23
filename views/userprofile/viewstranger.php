@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $user->username."'s profile";
                     <p><b>Address:</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo Html::encode( $profile->address.', '.$profile->city.', '.$profile->getZip().', '.$profile->country) ?></p>
                 </div>
                 <div>
-                    <p><b>Number of articles:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($profile->numberOfArticles($user->id)) ?></p>
+                    <p><b>Number of articles made:&nbsp;&nbsp;&nbsp;&nbsp;</b> <?php echo Html::encode($profile->numberOfArticles($user->id)) ?></p>
                 </div>
                
             </div>
