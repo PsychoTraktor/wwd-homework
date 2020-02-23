@@ -131,6 +131,7 @@ class ArticleController extends Controller
 
 
         $comment = new Comment();
+        
 
         if ($comment->load(Yii::$app->request->post()) && $comment->save())  {  //creating new comment
             

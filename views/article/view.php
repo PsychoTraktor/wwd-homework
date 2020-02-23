@@ -61,21 +61,25 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="comment-view">
 
 <?php if ($model->commentable == 1): ?> 
-    <h3>Leave a Comment</h3>
 
-    <div class="comment-form">
+    <?php if (Yii::$app->user->isGuest): ?>
+        <h4>If You want to leave a comment, please log in!</h4>
+    <?php else: ?>
+        <h3>Leave a Comment</h3>
 
-        <?php $form = ActiveForm::begin(); ?>
-        <?= $form->field($comment, 'article_id')->hiddenInput(['value'=>$model->id])->label(false); ?>           
-        <?= $form->field($comment, 'body')->textarea(['cols' => 3])->label(false); ?>
-    
-        <div class="form-group">
-            <?= Html::submitButton('Comment', ['class' => 'btn btn-success']) ?>
+        <div class="comment-form">
+
+            <?php $form = ActiveForm::begin(); ?>
+            <?= $form->field($comment, 'article_id')->hiddenInput(['value'=>$model->id])->label(false); ?>           
+            <?= $form->field($comment, 'body')->textarea(['cols' => 3])->label(false); ?>
+        
+            <div class="form-group">
+                <?= Html::submitButton('Comment', ['class' => 'btn btn-success']) ?>
+            </div>
+
+            <?php ActiveForm::end(); ?>
         </div>
-
-        <?php ActiveForm::end(); ?>
-    </div>
-    
+    <?php endif; ?>  
 
        
    <div >
